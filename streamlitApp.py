@@ -97,7 +97,7 @@ st.write("it is also possible to enter your own values of features, and" +
 #Dataset overview
 st.header("Original dataset overview")
 
-datasetPath = projectDirPath + "\original data and data description\\breast-cancer-wisconsin.csv"
+datasetPath = projectDirPath + "/original data and data description/breast-cancer-wisconsin.csv"
 dataset = pd.read_csv(datasetPath)
 
 newNames = {"1000025" : "Sample code number",
@@ -124,17 +124,17 @@ st.write("Two models were trained, the one with better recall was chosen"
 col1Log, col2Log = st.columns(2)
 with col1Log:
     st.subheader("Logistic Regression - Linear border")
-    showModelEval(projectDirPath + "\\modelsData\\logisticRegression")
+    showModelEval(projectDirPath + "/modelsData/logisticRegression")
 with col2Log:
     st.subheader("Logistic Regression - Non-linear border")
-    showModelEval(projectDirPath + "\\modelsData\\logisticRegressionPoly")
+    showModelEval(projectDirPath + "/modelsData/logisticRegressionPoly")
 st.markdown('<p style="font-size: 28px; color: Red">linear border ' +
             'was chosen for its better recall</p>', unsafe_allow_html=True)
 
 #svc analysis
 st.header("Support Vector Classifier")
 st.write("One model with linear kernel was trained")
-showModelEval(projectDirPath + "\\modelsData\\svc")
+showModelEval(projectDirPath + "/modelsData/svc")
 
 #knn analysis
 st.header("K Nearest Neighbors Analysis")
@@ -145,13 +145,13 @@ col1Knn, col2Knn, col3Knn = st.columns(3)
 
 with col1Knn:
     st.subheader("K-NN, 3 neighbors")
-    showModelEval(projectDirPath + "\\modelsData\\knn1")
+    showModelEval(projectDirPath + "/modelsData/knn1")
 with col2Knn:
     st.subheader("K-NN, 4 neighbors")
-    showModelEval(projectDirPath + "\\modelsData\\knn2")
+    showModelEval(projectDirPath + "/modelsData/knn2")
 with col3Knn:
     st.subheader("K-NN, 5 neighbors")
-    showModelEval(projectDirPath + "\\modelsData\\knn3")
+    showModelEval(projectDirPath + "/modelsData/knn3")
 st.markdown('<p style="font-size: 28px; color: Red">5 neighbors ' +
             'were chosen for its better recall</p>', unsafe_allow_html=True)
 
@@ -164,7 +164,7 @@ with st.form("user input"):
     
     if submitted:
         st.subheader("Logistic regression prediction")
-        logPath = projectDirPath + "\\models\\logisticRegression.joblib"
+        logPath = projectDirPath + "/models/logisticRegression.joblib"
         logPred = getModelPrediction(logPath, userInput)
         if (logPred == 4):
             st.write("the tumor is Malignant")
@@ -172,7 +172,7 @@ with st.form("user input"):
             st.write("the tumor is benign")
         
         st.subheader("Support vector classifier")
-        svcPath = projectDirPath + "\\models\\svc.joblib"
+        svcPath = projectDirPath + "/models/svc.joblib"
         svcPred = getModelPrediction(svcPath, userInput)
         if (svcPred == 4):
             st.write("the tumor is Malignant")
@@ -180,7 +180,7 @@ with st.form("user input"):
             st.write("the tumor is benign")
         
         st.subheader("K nearest neighbors")
-        knnPath = projectDirPath + "\\models\\K-NN.joblib"
+        knnPath = projectDirPath + "/models/K-NN.joblib"
         knnPred = getModelPrediction(knnPath, userInput)
         if (svcPred == 4):
             st.write("the tumor is Malignant")
